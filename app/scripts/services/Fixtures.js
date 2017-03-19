@@ -31,6 +31,39 @@
     };        
         Fixtures.getAlbum = function() {
             return albumPicasso;
+    };     
+		Fixtures.getCollection = function(numberOfAlbums) {
+			var albums = [];
+			for (var i = 0; i<numberOfAlbums; i++) {
+				albums.push(albumPicasso);
+			}
+			return albums;
+		};
+        
+		Fixtures.getCollection = function(numberOfAlbums) {
+			var albums = [];
+			for (var i = 0; i<numberOfAlbums; i++) {
+				albums.push(albumPicasso);
+			}
+			return albums;
+		};
+        
+        
+        return Fixtures;
+    }
+ 
+    angular
+        .module('blocJams')
+        .factory('Fixtures', Fixtures);
+})();
+
+
+(function () {
+    function CollectionCtrl (fixtures) {
+    
+        Fixtures.getCollection = function() {
+            albumPicasso.length
+            return albumPicasso(i);
     };        
         return Fixtures;
     }
