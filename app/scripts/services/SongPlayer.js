@@ -3,7 +3,6 @@
     function SongPlayer() {
         var SongPlayer = {};
 
-    var currentSong = null;
 
  /**
  * @desc Buzz object audio file
@@ -28,14 +27,22 @@
             preload: true
         });
         
-        currentSong = song;
+        SongPlayer.currentSong = song;
     };
         
+    SongPlayer.currentSong = null;
+    
+    var playSong = function (song) {
+        currentBuzzObject.play();
+        song.playing = true;
+    }
+        
     SongPlayer.play = function(song) {
-        if (currentSong !== song) {
+        song = song || SongPlayer.currentSong;
+        if (SongPlayer.currentSong  !== song) {
             setSong(song);
             playSong(song);
-        } else if (currentSong === song) {
+        } else if (SongPlayer.currentSong  === song) {
             if (currentBuzzObject.isPaused()) {
                 playSong();
             }
@@ -43,17 +50,15 @@
     };
 
     SongPlayer.pause = function(song) {
+        song = song || SongPlayer.currentSong;
         currentBuzzObject.pause();
         song.playing = false;
     };
 
     return SongPlayer;
-    }
+}
     
-    var playSong = function (song) {
-        currentBuzzObject.play();
-        song.playing = true;
-    }
+
  
     angular
         .module('blocJams')
