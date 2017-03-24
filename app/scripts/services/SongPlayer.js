@@ -1,4 +1,3 @@
-
 (function() {
     function SongPlayer(Fixtures) {
         var SongPlayer = {};
@@ -111,3 +110,4 @@
         .module('blocJams')
         .factory('SongPlayer', ['Fixtures', SongPlayer]);
  })();
+
